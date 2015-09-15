@@ -36,6 +36,9 @@ class ViewController: UIViewController {
             case "+": performOperation{ $0 + $1 }
             case "−": performOperation{ $1 - $0 }
             case "√": performOperation{ sqrt($0) }
+            case "sin": performOperation{ sin($0) }
+            case "cos": performOperation{ cos($0) }
+        case "π":performOperation{ M_PI * $0 }
             default : break
         }
     }
@@ -54,10 +57,12 @@ class ViewController: UIViewController {
         }
     }
    
+
     
     @IBAction func floatingPoint(sender: UIButton) {
+        let digit = sender.currentTitle!
         if(!userEnteredFloatingPoint) {
-            appendDigit(sender)
+            display.text = display.text! + digit
             userEnteredFloatingPoint = true
         }
     }
